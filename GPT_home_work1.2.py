@@ -72,3 +72,13 @@ print(data)
 data_1 = ""
 data_1 =bool(data_1)
 print(data_1)
+
+# преобразование переменной в список
+spisok_string = "hello"
+lst = list("hello")
+print(lst)
+
+spisok_1 ="bye"
+spisok_1 =["b", "y", "e"]
+print(spisok_1)
+print(type(spisok_1))
