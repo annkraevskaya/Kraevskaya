@@ -120,3 +120,79 @@ print(skolko)
 kopi_numbers = numbers.copy()
 print(kopi_numbers)
 import copy
+
+# a= "123"
+# b=10
+#
+# a=int("123")
+# print(a+b)
+
+# name = "Anna"
+# age = 27
+# city = "Moscow"
+# print(name)
+# print(age)
+# print(city)
+
+# x=7
+# y=3
+# print(x/y)
+# print(x//y)
+
+
+# a =15
+# b =20
+# print(a>b)
+# print(a==15)
+
+# x = 100
+# print(x)
+# print(type(x))
+#
+# x=("сто")
+# print(x)
+# print(type(x))
+
+# box_in_market = "20 kg Apples"
+# student_of_universyty= "Alex"
+# print("Коробка в магазине содержит:",box_in_market)
+# print("Студент колледжа по имени:", student_of_universyty)
+
+# number_int= 100
+# number_float = 20.5
+# stroka ="строка"
+# logicheskoe_znachenie= 5==5
+# print(number_int)
+# print(type(number_int))
+# print(number_float)
+# print(type(number_float))
+# print(stroka)
+# print(type(stroka))
+# print(logicheskoe_znachenie)
+# print(type(logicheskoe_znachenie))
+
+# pi =3.14
+# print(pi)
+# print(type(pi))
+#
+# pi ="π"
+# print(pi)
+# print(type(pi))
+
+# a =5.7
+# a=int(5.7)
+# print(a)
+#
+# a=str(a)
+# print(a)
+# print(type(a))
+#
+# x=12
+# y=8
+# print(x<y)
+# print(x>y)
+# print(x==y)
+
+# a = 9
+# a+=5
+# print(a)
