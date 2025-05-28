@@ -1,5 +1,6 @@
 #Задача 1 (Срезы)
 #Дана строка s = "Python". Выведи первые 3 символа и последние 2 символа.
+from tkinter.font import names
 
 stroka = "Python"
 symbol1 =stroka[0]
@@ -89,28 +90,74 @@ groceries = fruits + vegetables # `Объединение списков при 
 #print(colors)
 #colors.clear()
 #print(colors)
+#
+# text = "Цены: 100₽, 200₽, 150₽"
+# clean_text =text.replace("₽"," ").replace("Цены:", "")
+# print(clean_text)
+# print(clean_text.strip())
+# element1 = clean_text[0:4]
+# print(element1)
+# element1 = int(element1)
+# print(type(element1))
+# element2=clean_text[6:10]
+# print(element2)
+# element2 = int(element2)
+# print(type(element2))
+# element3=clean_text[13:16]
+# print(element3)
+# element3 = int(element3)
+# print(type(element3))
+# print(len(clean_text))
+#
+# fruits = ['яблоко', 'банан', 'киви', 'груша', 'персик']
+# #Выведи на экран второй и четвертый элементы списка.
+# element_2 = fruits[1]
+# element_4 = fruits[3]
+# print(element_2)
+# print(element_4)
 
-text = "Цены: 100₽, 200₽, 150₽"
-clean_text =text.replace("₽"," ").replace("Цены:", "")
-print(clean_text)
-print(clean_text.strip())
-element1 = clean_text[0:4]
-print(element1)
-element1 = int(element1)
-print(type(element1))
-element2=clean_text[6:10]
-print(element2)
-element2 = int(element2)
-print(type(element2))
-element3=clean_text[13:16]
-print(element3)
-element3 = int(element3)
-print(type(element3))
-print(len(clean_text))
 
-fruits = ['яблоко', 'банан', 'киви', 'груша', 'персик']
-#Выведи на экран второй и четвертый элементы списка.
-element_2 = fruits[1]
-element_4 = fruits[3]
-print(element_2)
-print(element_4)
+
+# закрепление темы спустя время(28мая)
+
+# text ="Python"
+# new_peremennaya=text[0:3:1]
+# print(new_peremennaya)
+
+# name ="Иван"
+# age = 30
+# print(f"Меня зовут {name} и мне {age} лет")
+
+# s = "python"
+# print(s.upper())
+#
+# word = "программа"
+# print(word[1])
+
+# my_string = "Hello, world!"
+# print(len(my_string))
+
+# a = "Python"
+# b = "3.10"
+# print(a+b)
+#
+# new_message ="Дурак дураку рознь"
+# print(new_message)
+
+# text = "автоматизация"
+# print(text[-4:])
+
+phrase = "информатика"
+print(phrase[:6])
+
+word = "автоматизация"
+print(word[2:8:1])
+
+sentence = "программирование"
+print(sentence[::2])
+
+msg = "машиностроение"
+print(msg[-5:])
+
+text = "компьютер"
+print(text[::-1])
