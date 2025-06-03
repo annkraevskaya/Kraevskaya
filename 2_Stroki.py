@@ -146,18 +146,26 @@ groceries = fruits + vegetables # `Объединение списков при 
 
 # text = "автоматизация"
 # print(text[-4:])
+#
+# phrase = "информатика"
+# print(phrase[:6])
+#
+# word = "автоматизация"
+# print(word[2:8:1])
+#
+# sentence = "программирование"
+# print(sentence[::2])
+#
+# msg = "машиностроение"
+# print(msg[-5:])
+#
+# text = "компьютер"
+# print(text[::-1])
 
-phrase = "информатика"
-print(phrase[:6])
 
-word = "автоматизация"
-print(word[2:8:1])
+text = "Python is awesome!"
 
-sentence = "программирование"
-print(sentence[::2])
-
-msg = "машиностроение"
-print(msg[-5:])
-
-text = "компьютер"
-print(text[::-1])
+print(len(text))
+print(text.upper())
+print(text.replace("awesome", "powerful"))
+print(text[7:11])
