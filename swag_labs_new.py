@@ -1,83 +1,89 @@
-import time
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+# Импорт всех необходимых библиотек
+import time  # модуль time позволяет делать паузы, чтобы успевать увидеть, что происходит
+from selenium import webdriver  # импортируем webdriver - он управляет браузером
 
-# Настройки Chrome, чтобы не было уведомлений о паролях
-options = webdriver.ChromeOptions()
-options.add_argument("--incognito")
+# Создаём настройки для браузера Chrome
+options = webdriver.ChromeOptions()  # создаём переменную с настройками
+options.add_argument("--incognito")  # подкидываем режим инкогнито (в том числе, чтобы не мешало окно уведомления о пароле)
 
-options.add_experimental_option("prefs", {
-    "credentials_enable_service": False,
-    "profile.password_manager_enabled": False
-})
-
-driver = webdriver.Chrome(options=options)
-driver.get("https://www.saucedemo.com")
+# Запускаем браузер с нашими настройками
+driver = webdriver.Chrome(options=options)  # создаём переменную driver и подкидываем туда webdriver с настройками
+driver.get("https://www.saucedemo.com")  # открываем нужный сайт
 time.sleep(2)
 
-USER_NAME = driver.find_element("xpath", "//input[@id='user-name']")
-PASSWORD = driver.find_element("xpath", "//input[@id='password']")
-LOGIN = driver.find_element("xpath", "//input[@type='submit']")
 
-USER_NAME.send_keys("standard_user")
+
+# Находим поля для логина и пароля, а также кнопку входа
+user_name = driver.find_element("xpath", "//input[@id='user-name']")
+password = driver.find_element("xpath", "//input[@id='password']")
+login = driver.find_element("xpath", "//input[@type='submit']")
+
+# Вводим логин и пароль с помощью метода send_keys
+user_name.send_keys("standard_user")
 time.sleep(2)
-PASSWORD.send_keys("secret_sauce")
+password.send_keys("secret_sauce")
 time.sleep(2)
 
-LOGIN.click()
-
+# Нажимаем на кнопку входа
+login.click()
 time.sleep(2)
 
-print(driver.current_url)
-print(driver.title)
-assert driver.title == "Swag Labs"
-assert driver.current_url =="https://www.saucedemo.com/inventory.html"
+# Проверяем, куда попали: выводим адрес и заголовок страницы
+print(driver.current_url)  # выводим текущий URL
+print(driver.title)  # выводим заголовок страницы
+assert driver.title == "Swag Labs"  # убеждаемся, что заголовок правильный
+assert driver.current_url == "https://www.saucedemo.com/inventory.html"  # проверяем, что мы на нужной странице
 
-ADD_TO_CART = driver.find_element("xpath", "//button[@id='add-to-cart-sauce-labs-backpack']")
-ADD_TO_CART.click()
+# Добавление товара в корзину
+
+# Находим кнопку "Добавить в корзину" напрример у рюкзака и кликаем по ней
+add_to_cart = driver.find_element("xpath", "//button[@id='add-to-cart-sauce-labs-backpack']")
+add_to_cart.click()
 time.sleep(3)
 
-BASKET = driver.find_element("xpath", "//a[@class='shopping_cart_link']")
-
-BASKET.click()
+# Переходим в корзину — находим значок корзины и нажимаем на него
+basket = driver.find_element("xpath", "//a[@class='shopping_cart_link']")
+basket.click()
 time.sleep(3)
 
+# Проверяем, что перешли на страницу корзины
 print(driver.current_url)
 assert driver.current_url == "https://www.saucedemo.com/cart.html"
 
-CHECKOUT = driver.find_element("xpath", "//button[@class='btn btn_action btn_medium checkout_button ']")
+#Оформление покупки
 
-CHECKOUT.click()
-
+# Находим кнопку "Checkout" (оформить заказ) и нажимаем
+checkout = driver.find_element("xpath", "//button[@class='btn btn_action btn_medium checkout_button ']")
+checkout.click()
 time.sleep(5)
 
-FIRST_NAME =driver.find_element("xpath", "//input[@class='input_error form_input']")
-
-FIRST_NAME.click()
-FIRST_NAME.send_keys("Anna")
+# Заполняем данные покупателя — имя, фамилия, индекс
+first_name = driver.find_element("xpath", "//input[@id='first-name']")
+first_name.send_keys("Anna")
 time.sleep(1)
 
-LAST_NAME = driver.find_element("xpath", "//input[@id='last-name']")
-LAST_NAME.send_keys("Kraevskaya")
+last_name = driver.find_element("xpath", "//input[@id='last-name']")
+last_name.send_keys("Kraevskaya")
 time.sleep(1)
 
-ZIP_POSTAL_CODE = driver.find_element("xpath", "//input[@id='postal-code']")
-ZIP_POSTAL_CODE.send_keys("123456")
-
+zip_postal_code = driver.find_element("xpath", "//input[@id='postal-code']")
+zip_postal_code.send_keys("123456")
 time.sleep(1)
 
+# Нажимаем на кнопку подтверждения - Continue, чтобы перейти к следующему шагу
+continue_button = driver.find_element("xpath", "//input[@type='submit']")
+continue_button.click()
 
-CONTINUE = driver.find_element("xpath", "//input[@type='submit']")
-
-CONTINUE.click()
+# Проверяем, что мы на следующем шаге оформления
 print(driver.current_url)
 assert driver.current_url == "https://www.saucedemo.com/checkout-step-two.html"
-
 time.sleep(3)
 
-FINISH = driver.find_element("xpath", "//button[@class='btn btn_action btn_medium cart_button']")
-FINISH.click()
+# Находим кнопку "Finish" и завершаем оформление покупки
+finish = driver.find_element("xpath", "//button[@class='btn btn_action btn_medium cart_button']")
+finish.click()
 time.sleep(3)
 
+# Проверяем, что попали на финальную страницу "покупка завершена"
 print(driver.current_url)
 assert driver.current_url == "https://www.saucedemo.com/checkout-complete.html"
