@@ -1,3 +1,5 @@
+import time
+
 import pytest
 import allure
 from allure_commons.types import Severity
@@ -145,6 +147,7 @@ class TestSwagLabs:
 
         ZIP_POSTAL_CODE = self.driver.find_element("xpath", "//input[@id='postal-code']")
         ZIP_POSTAL_CODE.send_keys("123456")
+        time.sleep(3)
 
 
         allure.attach(
@@ -166,7 +169,7 @@ class TestSwagLabs:
                 name="финишная страница оформления",
                 attachment_type=allure.attachment_type.PNG
             )
-        with allure.step("проверка урла страницы 'Complete!'. ШАГ 7"):
+        with allure.step("проверка урла страницы 'Complete!'. ШАГ 8"):
                 assert self.driver.current_url == "https://www.saucedemo.com/checkout-complete.html"
 
 

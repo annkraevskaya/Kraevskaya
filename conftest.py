@@ -15,6 +15,7 @@ def driver(request):
     driver.quit()
 
 
+
 @pytest.fixture(autouse=True)
 def setup_environment_properties():
     properties = {
