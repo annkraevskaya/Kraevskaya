@@ -8,8 +8,8 @@ from selenium import webdriver
 
 
 @pytest.mark.usefixtures("driver")
-@allure.epic("Accaunts")
-@allure.feature("Login")
+@allure.epic("Accounts")
+@allure.feature("Auth, order")
 @allure.story("Pages")
 class TestSwagLabs:
 
@@ -31,7 +31,7 @@ class TestSwagLabs:
 
     @pytest.mark.smoke
     @pytest.mark.auth
-    @allure.title("auth")
+    @allure.title("авторизация")
     @allure.severity(Severity.BLOCKER)
     def test_auth(self):
         self.driver.get("https://www.saucedemo.com/")
@@ -44,11 +44,11 @@ class TestSwagLabs:
         assert self.driver.title == "Swag Labs"
         assert self.driver.current_url == "https://www.saucedemo.com/inventory.html"
 
-    @pytest.mark.smoke
+    @pytest.mark.sanity
     @pytest.mark.profile
     @pytest.mark.auth
     @allure.title("авторизация и добавление товара в корзину")
-    @allure.severity(Severity.BLOCKER)
+    @allure.severity(Severity.CRITICAL)
     def test_adding_product_to_cart(self):
 
         with allure.step("Открытие страницы авторизации. ШАГ 1"):
@@ -90,8 +90,8 @@ class TestSwagLabs:
     @pytest.mark.profile
     @pytest.mark.chekcout
     @pytest.mark.regression
-    @allure.title("оформление заказа, заполнение пользовательских данных")
-    @allure.severity(Severity.BLOCKER)
+    @allure.title("заполнение пользовательских данных, оформление заказа")
+    @allure.severity(Severity.CRITICAL)
     def test_checkout(self):
         with allure.step("Открытие страницы авторизации. ШАГ 1"):
              self.driver.get("https://www.saucedemo.com/")
